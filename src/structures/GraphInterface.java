@@ -8,8 +8,8 @@ public interface GraphInterface <V>{
 
 	public boolean addEdge(V v, V v2, Double l);
 	
-	public List<V> getRouteByDK();
+	public List<V> getRouteByDK(V v1, V v2);
 	
-	public List<V> getRoouteByFW();
-	
+	public List<V> getRouteByFW(V v1, V v2);
+
 }

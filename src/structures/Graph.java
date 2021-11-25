@@ -50,8 +50,39 @@ public class Graph<V> implements GraphInterface<V>{
 	}
 	
 	@Override
-	public List<V> getRouteByDK() {
+	public List<V> getRouteByFW(V v1, V v2) {
+		int[][] m  = fw();
 		
+		int start = vertexIndex.get(v2);
+		int end = vertexIndex.get(v2);
+		
+		List<V> a = new ArrayList<>();
+		boolean finished = false;
+		
+		int c = m[start][end];
+		
+		
+		a.add((V) vertexes.get(start).getValue());
+		
+		while (!finished)
+		{
+			if (start == end)
+			{
+				finished = true;
+			}else 
+			{
+				if (c == end)
+				{
+					a.add((V) vertexes.get(c).getValue());
+					finished = true;
+				}else
+				{
+					a.add((V) vertexes.get(c).getValue());
+					c = m[c][end];
+				}
+			}
+		}
+		return a;
 	}
 	
 	public int[][] fw() {
@@ -89,11 +120,11 @@ public class Graph<V> implements GraphInterface<V>{
 	}
 	
 	@Override
-	public List<V> getRoouteByFW() {
+	public List<V> getRouteByDK(V v1, V v2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	public Double[][] getDistanceMatrix() {
 		return distanceMatrix;
 	}
@@ -109,7 +140,4 @@ public class Graph<V> implements GraphInterface<V>{
 	public void setIndex(int index) {
 		this.index = index;
 	}
-	
-	
-	
 }
