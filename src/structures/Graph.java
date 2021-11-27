@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Graph<V> implements GraphInterface<V>{
 	
-	private List <Vertex> vertexes;
+	private List <Vertex<V>> vertexes;
 	
 	private Double[][] distanceMatrix;
 	
@@ -14,7 +14,7 @@ public class Graph<V> implements GraphInterface<V>{
 	private int index;
 	
 	public Graph() {
-		vertexes = new ArrayList<Vertex>();
+		vertexes = new ArrayList<Vertex<V>>();
 		vertexIndex = new Hashtable<>();
 		index = 0;
 	}
@@ -23,15 +23,20 @@ public class Graph<V> implements GraphInterface<V>{
 	public boolean add(V v) {
 		boolean isRepeated = false;
 		Vertex<V> newVertex = new Vertex<V>(v);
-		
-		for(int i = 0; i < vertexes.size(); i++) {
-			if(vertexes != v) {
-				isRepeated = true;
+		if(vertexes.size() == 0) {
+			vertexes.add(newVertex);
+		} else {
+			for(int i = 0; i < vertexes.size(); i++) {
+				if(vertexes.get(i).getValue() == v) {
+					isRepeated = true;
+				}
 			}
 		}
+		
 		if(!isRepeated) {
 			vertexes.add(newVertex);
 			vertexIndex.put(v, index);
+			index++;
 		}
 		return !isRepeated;
 	}
@@ -39,13 +44,22 @@ public class Graph<V> implements GraphInterface<V>{
 	@Override
 	public boolean addEdge(V v, V v2, Double l) {
 		boolean added = false;
-		distanceMatrix = new Double[vertexes.size()][vertexes.size()];
-		
+		if(distanceMatrix == null) {
+			
+			distanceMatrix = new Double[vertexes.size()-1][vertexes.size()-1];
+			
+			for(int i = 0; i < distanceMatrix.length; i++) {
+				for(int j = 0; j < distanceMatrix[0].length; j++) {
+					if(i == j) {
+						distanceMatrix[i][j] = (double) 0;
+					}
+				}
+			}
+		}
 		if(vertexIndex.get(v) != null && vertexIndex.get(v2) != null) {
 			distanceMatrix[vertexIndex.get(v)][vertexIndex.get(v2)] = l;
 			distanceMatrix[vertexIndex.get(v2)][vertexIndex.get(v)] = l;
 		}
-		
 		return added;
 	}
 	
@@ -123,6 +137,19 @@ public class Graph<V> implements GraphInterface<V>{
 	public List<V> getRouteByDK(V v1, V v2) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public String getTxtMatrix() {
+		String txt = "";
+		for(int i = 0; i < distanceMatrix.length; i++) {
+			for(int j = 0; j < distanceMatrix[0].length; j++) {
+				txt += "[" + distanceMatrix[i][j] + "] ";
+			}
+			
+			txt += "\n";
+		}
+		
+		return txt;
 	}
 	
 	public Double[][] getDistanceMatrix() {
