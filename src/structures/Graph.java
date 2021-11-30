@@ -20,23 +20,10 @@ public class Graph implements GraphInterface{
 		distanceMatrix = matrix;
 	}
 	@Override
-	public boolean addVertex(String name, long weight) {
-		boolean isRepeated = false;
-		if(vertexes.isEmpty()) {
-			vertexes.add(new Vertex<Long>(name, weight, count));
-		}else {
-			for(int i = 0; i<vertexes.size(); i++) {
-				if(vertexes.get(i).getName().equals(name)) {
-					isRepeated = true;
-				}
-			}
-		}
-		if(!isRepeated) {
-			vertexes.add(new Vertex<Long>(name, weight, count));
-			vertexIndex.put(name, count);
-			count++;
-		}
-		return isRepeated;
+	public void addVertex(String name, long weight) {
+		vertexes.add(new Vertex<Long>(name, weight, count));
+		vertexIndex.put(name, count);
+		count++;
 	}
 	@Override
 	public void addNeighbor(int posVertex1, int posVertex2, long distance) {
@@ -51,7 +38,6 @@ public class Graph implements GraphInterface{
 		}
 		vertexes.get(source).setWeight((long)0);
 		
-		System.out.println();
 		for(int i = 0; i<SIZE-1; i++) {
 			int pos = minDistance(vertexChecked);
 			vertexChecked[pos] = true;

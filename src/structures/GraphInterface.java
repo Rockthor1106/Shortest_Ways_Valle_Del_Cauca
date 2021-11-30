@@ -4,18 +4,18 @@ import java.util.List;
 
 public interface GraphInterface {
 
-	boolean addVertex(String name, long weight);
+	public void addVertex(String name, long weight);
 
-	void addNeighbor(int posVertex1, int posVertex2, long distance);
+	public void addNeighbor(int posVertex1, int posVertex2, long distance);
 
-	void Dijkstra(int source);
+	public void Dijkstra(int source);
 
-	List<Vertex<Long>> getRoadDijkstra(int destiny);
+	public List<Vertex<Long>> getRoadDijkstra(int destiny);
 
-	List<Vertex<Long>> getRoadFloydWarshall(String v1, String v2);
+	public List<Vertex<Long>> getRoadFloydWarshall(String v1, String v2);
 
-	int[][] FloydWarshall();
+	public int[][] FloydWarshall();
 
-	String getTxtMatrix();
+	public String getTxtMatrix();
 	
 }
