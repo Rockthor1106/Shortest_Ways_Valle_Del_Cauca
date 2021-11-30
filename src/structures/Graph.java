@@ -11,7 +11,7 @@ public class Graph<V> implements GraphInterface<V>{
 	private Double[][] distanceMatrix;
 	
 	private Hashtable<V, Integer> vertexIndex;
-	private int index;
+	private int index,aux;
 	
 	public Graph() {
 		vertexes = new ArrayList<Vertex<V>>();
@@ -23,13 +23,9 @@ public class Graph<V> implements GraphInterface<V>{
 	public boolean add(V v) {
 		boolean isRepeated = false;
 		Vertex<V> newVertex = new Vertex<V>(v);
-		if(vertexes.size() == 0) {
-			vertexes.add(newVertex);
-		} else {
-			for(int i = 0; i < vertexes.size(); i++) {
-				if(vertexes.get(i).getValue() == v) {
-					isRepeated = true;
-				}
+		for(int i = 0; i < vertexes.size(); i++) {
+			if(vertexes.get(i).getValue() == v) {
+				isRepeated = true;
 			}
 		}
 		
@@ -46,28 +42,41 @@ public class Graph<V> implements GraphInterface<V>{
 		boolean added = false;
 		if(distanceMatrix == null) {
 			
-			distanceMatrix = new Double[vertexes.size()-1][vertexes.size()-1];
+			distanceMatrix = new Double[vertexes.size()][vertexes.size()];
+			initilizesMatrix();
 			
-			for(int i = 0; i < distanceMatrix.length; i++) {
-				for(int j = 0; j < distanceMatrix[0].length; j++) {
-					if(i == j) {
-						distanceMatrix[i][j] = (double) 0;
-					}
-				}
-			}
 		}
 		if(vertexIndex.get(v) != null && vertexIndex.get(v2) != null) {
 			distanceMatrix[vertexIndex.get(v)][vertexIndex.get(v2)] = l;
+			
 			distanceMatrix[vertexIndex.get(v2)][vertexIndex.get(v)] = l;
 		}
+		
+		if(vertexes.get(vertexIndex.get(v)).getValue() == "EL CERRITO") {
+			index++;
+		} else if(vertexes.get(vertexIndex.get(v2)).getValue() == "EL CERRITO") {
+			index++;
+		}
 		return added;
+	}
+	
+	public void initilizesMatrix() {
+		for(int i = 0; i < distanceMatrix.length; i++) {
+			for(int j = 0; j < distanceMatrix[0].length; j++) {
+				if(i != j) {
+					distanceMatrix[i][j] = Double.MAX_VALUE;
+				} else {
+					distanceMatrix[i][j] = (double) 0;
+				}
+			}
+		}
 	}
 	
 	@Override
 	public List<V> getRouteByFW(V v1, V v2) {
 		int[][] m  = fw();
 		
-		int start = vertexIndex.get(v2);
+		int start = vertexIndex.get(v1);
 		int end = vertexIndex.get(v2);
 		
 		List<V> a = new ArrayList<>();
@@ -75,23 +84,17 @@ public class Graph<V> implements GraphInterface<V>{
 		
 		int c = m[start][end];
 		
+		a.add(vertexes.get(start).getValue());
 		
-		a.add((V) vertexes.get(start).getValue());
-		
-		while (!finished)
-		{
-			if (start == end)
-			{
+		while (!finished) {
+			if (start == end) {
 				finished = true;
-			}else 
-			{
-				if (c == end)
-				{
-					a.add((V) vertexes.get(c).getValue());
+			} else 	{
+				if (c == end) {
+					a.add(vertexes.get(end).getValue());
 					finished = true;
-				}else
-				{
-					a.add((V) vertexes.get(c).getValue());
+				}else {
+					a.add(vertexes.get(c).getValue());
 					c = m[c][end];
 				}
 			}
@@ -109,27 +112,35 @@ public class Graph<V> implements GraphInterface<V>{
 			for (int j = 0; j < distanceMatrix.length; j++)
 			{
 				cost[i][j] = distanceMatrix[i][j];
-				al[i][j] = j;
+				
+				if(cost[i][j] == Double.MAX_VALUE) {
+					al[i][j] = -1;
+				} else {
+					al[i][j] = j;
+				}
 			}
 			
 		}
 		
-		for (int i = 0; i < cost.length; i++)
-		{
-			for (int j = 0; j < cost.length; j++)
-			{
-				for (int k = 0;k < cost.length; k++)
-				{
-					double aux = cost[i][j]+cost[k][i];
+		for (int i = 0; i < cost.length; i++) {
+			
+			for (int j = 0; j < cost.length; j++) {
+				
+				for (int k = 0;k < cost.length; k++) {
+					
+					double aux = cost[i][j] + cost[k][i];
 					if (aux < cost[k][j]) {
 						cost[k][j] = aux;
 						cost[j][k] = aux;
 						al[k][j] = i;
 						al[j][k] = i;
+					} else {
+						
 					}
 				}
 			}
 		}
+		
 		return al;
 	}
 	
@@ -152,6 +163,10 @@ public class Graph<V> implements GraphInterface<V>{
 		return txt;
 	}
 	
+	public int getNumEdges() {
+		return aux;
+	}
+	
 	public Double[][] getDistanceMatrix() {
 		return distanceMatrix;
 	}
@@ -166,5 +181,13 @@ public class Graph<V> implements GraphInterface<V>{
 
 	public void setIndex(int index) {
 		this.index = index;
+	}
+
+	public List<Vertex<V>> getVertexes() {
+		return vertexes;
+	}
+
+	public void setVertexes(List<Vertex<V>> vertexes) {
+		this.vertexes = vertexes;
 	}
 }
