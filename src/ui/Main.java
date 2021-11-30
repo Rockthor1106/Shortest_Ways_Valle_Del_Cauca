@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.IOException;
 import java.util.List;
 
 import structures.*;
@@ -7,17 +8,6 @@ import structures.*;
 public class Main {
 	
 	public static void main(String[] args) {
-		/*
-		Graph<String> a = new Graph<String>();
-		a.add("Candelaria");
-		a.add("Pradera");
-		a.add("Cali");
-		
-		a.addEdge("Candelaria", "Cali", (double) 26);
-		a.addEdge("Cali", "Pradera", (double)52);
-		a.addEdge("Candelaria", "Pradera", (double)32);
-		System.out.println(a.getTxtMatrix());
-		*/
 		int[][] matrix = {{0,4,2,0,0,0}
 		 ,{4,0,1,5,0,0}
 		 ,{2,1,0,8,10,0}
@@ -46,9 +36,30 @@ public class Main {
 	}
 	
 	public static void FloydWarshall(Graph grafo) {
-		List<Vertex<Long>> road = grafo.getRoadFloydWarshall("Node1", "Node6");
+		List<String> road = grafo.getRouteByFW("Node1", "Node6");
 		for(int i = 0; i<road.size(); i++) {
-			System.out.println(road.get(i).getName());
+			System.out.println(road.get(i));
 		}
 	}
+	/*
+	public static void main(String[] args) throws IOException {
+		
+		Route r = new Route();
+		
+		System.out.println(r.getGraph().getNumEdges());
+		
+		System.out.println(r.getGraph().getTxtMatrix());
+		
+		int[][] m = r.getGraph().fw();
+		
+		String c = "";
+		for(int i = 0; i < m.length; i++) {
+			for(int j = 0; j < m.length; j++) {
+				c += " [" + m[i][j] + "] ";
+			}
+			c += "\n";
+		}
+		System.out.println(c);
+	}
+	*/
 }

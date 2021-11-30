@@ -12,10 +12,10 @@ public interface GraphInterface {
 
 	public List<Vertex<Long>> getRoadDijkstra(int destiny);
 
-	public List<Vertex<Long>> getRoadFloydWarshall(String v1, String v2);
-
 	public int[][] FloydWarshall();
 
 	public String getTxtMatrix();
+
+	List<String> getRouteByFW(String v1, String v2);
 	
 }
