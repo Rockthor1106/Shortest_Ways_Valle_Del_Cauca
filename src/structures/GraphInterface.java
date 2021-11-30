@@ -2,14 +2,20 @@ package structures;
 
 import java.util.List;
 
-public interface GraphInterface <V>{
-	
-	public boolean add(V v);
+public interface GraphInterface {
 
-	public boolean addEdge(V v, V v2, Double l);
-	
-	public List<V> getRouteByDK(V v1, V v2);
-	
-	public List<V> getRouteByFW(V v1, V v2);
+	boolean addVertex(String name, long weight);
 
+	void addNeighbor(int posVertex1, int posVertex2, long distance);
+
+	void Dijkstra(int source);
+
+	List<Vertex<Long>> getRoadDijkstra(int destiny);
+
+	List<Vertex<Long>> getRoadFloydWarshall(String v1, String v2);
+
+	int[][] FloydWarshall();
+
+	String getTxtMatrix();
+	
 }

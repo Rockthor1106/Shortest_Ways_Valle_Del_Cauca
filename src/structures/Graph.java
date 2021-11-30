@@ -4,123 +4,101 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-public class Graph<V> implements GraphInterface<V>{
+public class Graph implements GraphInterface{
+	private static final int SIZE = 6;
+	private int count = 0;
 	
-	private List <Vertex<V>> vertexes;
+	private int[][] distanceMatrix;
 	
-	private Double[][] distanceMatrix;
+	private Hashtable<String, Integer> vertexIndex;
 	
-	private Hashtable<V, Integer> vertexIndex;
-	private int index;
+	private List<Vertex<Long>> vertexes;
 	
-	public Graph() {
-		vertexes = new ArrayList<Vertex<V>>();
+	public Graph(int[][] matrix) {
+		vertexes = new ArrayList<>();
 		vertexIndex = new Hashtable<>();
-		index = 0;
+		distanceMatrix = matrix;
 	}
-	
 	@Override
-	public boolean add(V v) {
+	public boolean addVertex(String name, long weight) {
 		boolean isRepeated = false;
-		Vertex<V> newVertex = new Vertex<V>(v);
-		if(vertexes.size() == 0) {
-			vertexes.add(newVertex);
-		} else {
-			for(int i = 0; i < vertexes.size(); i++) {
-				if(vertexes.get(i).getValue() == v) {
+		if(vertexes.isEmpty()) {
+			vertexes.add(new Vertex<Long>(name, weight, count));
+		}else {
+			for(int i = 0; i<vertexes.size(); i++) {
+				if(vertexes.get(i).getName().equals(name)) {
 					isRepeated = true;
 				}
 			}
 		}
-		
 		if(!isRepeated) {
-			vertexes.add(newVertex);
-			vertexIndex.put(v, index);
-			index++;
+			vertexes.add(new Vertex<Long>(name, weight, count));
+			vertexIndex.put(name, count);
+			count++;
 		}
-		return !isRepeated;
+		return isRepeated;
 	}
-
 	@Override
-	public boolean addEdge(V v, V v2, Double l) {
-		boolean added = false;
-		if(distanceMatrix == null) {
-			
-			distanceMatrix = new Double[vertexes.size()-1][vertexes.size()-1];
-			
-			for(int i = 0; i < distanceMatrix.length; i++) {
-				for(int j = 0; j < distanceMatrix[0].length; j++) {
-					if(i == j) {
-						distanceMatrix[i][j] = (double) 0;
-					}
+	public void addNeighbor(int posVertex1, int posVertex2, long distance) {
+		vertexes.get(posVertex1).addNeighbor(vertexes.get(posVertex2), distance);
+	}
+	@Override
+	public void Dijkstra(int source) {
+		boolean[] vertexChecked = new boolean[SIZE];
+		for(int i = 0; i<SIZE; i++) {
+			vertexes.get(i).setWeight((long)Integer.MAX_VALUE);
+			vertexChecked[i] = false;
+		}
+		vertexes.get(source).setWeight((long)0);
+		
+		System.out.println();
+		for(int i = 0; i<SIZE-1; i++) {
+			int pos = minDistance(vertexChecked);
+			vertexChecked[pos] = true;
+			for(Vertex<Long> v : vertexes.get(pos).getNeighbors()) {
+				long alt = vertexes.get(pos).getWeight() + vertexes.get(pos).getDistance(v.getPosition());
+				if(!vertexChecked[v.getPosition()] && vertexes.get(pos).getDistance(v.getPosition()) > 0 && vertexes.get(pos).getWeight() != Integer.MAX_VALUE){
+					vertexes.get(v.getPosition()).setWeight(alt);
+					vertexes.get(v.getPosition()).setPrev(vertexes.get(pos));
 				}
 			}
 		}
-		if(vertexIndex.get(v) != null && vertexIndex.get(v2) != null) {
-			distanceMatrix[vertexIndex.get(v)][vertexIndex.get(v2)] = l;
-			distanceMatrix[vertexIndex.get(v2)][vertexIndex.get(v)] = l;
-		}
-		return added;
 	}
-	
-	@Override
-	public List<V> getRouteByFW(V v1, V v2) {
-		int[][] m  = fw();
-		
-		int start = vertexIndex.get(v2);
-		int end = vertexIndex.get(v2);
-		
-		List<V> a = new ArrayList<>();
-		boolean finished = false;
-		
-		int c = m[start][end];
-		
-		
-		a.add((V) vertexes.get(start).getValue());
-		
-		while (!finished)
-		{
-			if (start == end)
-			{
-				finished = true;
-			}else 
-			{
-				if (c == end)
-				{
-					a.add((V) vertexes.get(c).getValue());
-					finished = true;
-				}else
-				{
-					a.add((V) vertexes.get(c).getValue());
-					c = m[c][end];
-				}
+	private int minDistance(boolean[] vertexChecked) {
+		long min = (long)Integer.MAX_VALUE;
+		int min_index = 0;
+		for(int i = 0; i<SIZE; i++) {
+			if(vertexChecked[i] == false && vertexes.get(i).getWeight() <= min) {
+				min = vertexes.get(i).getWeight();
+				min_index = i;
 			}
 		}
-		return a;
+		return min_index;
 	}
-	
-	public int[][] fw() {
-		Double[][] cost = new Double [distanceMatrix.length][distanceMatrix[0].length];
-		int[][] al = new int [distanceMatrix.length][distanceMatrix[0].length]; 
-		
-		
-		for (int i = 0; i < distanceMatrix.length; i++)
-		{
-			for (int j = 0; j < distanceMatrix.length; j++)
-			{
+	@Override
+	public List<Vertex<Long>> getRoadDijkstra(int destiny) {
+		List<Vertex<Long>> road = new ArrayList<>();
+		Vertex<Long> actual = vertexes.get(destiny);
+		while(actual.getPrev() != null) {
+			road.add(0, vertexes.get(actual.getPosition()));
+			actual = vertexes.get(actual.getPrev().getPosition());
+		}
+		return road;
+	}
+	@Override
+	public int[][] FloydWarshall() {
+		int[][] cost = new int[SIZE][SIZE];
+		int[][] al = new int [SIZE][SIZE]; 
+		for (int i = 0; i < distanceMatrix.length; i++) {
+			for (int j = 0; j < distanceMatrix.length; j++) {
 				cost[i][j] = distanceMatrix[i][j];
 				al[i][j] = j;
 			}
-			
 		}
-		
-		for (int i = 0; i < cost.length; i++)
-		{
-			for (int j = 0; j < cost.length; j++)
-			{
-				for (int k = 0;k < cost.length; k++)
-				{
-					double aux = cost[i][j]+cost[k][i];
+		for (int i = 0; i < cost.length; i++) {
+			for (int j = 0; j < cost.length; j++) {
+				for (int k = 0;k < cost.length; k++) {
+					int aux = cost[i][j]+cost[k][i];
 					if (aux < cost[k][j]) {
 						cost[k][j] = aux;
 						cost[j][k] = aux;
@@ -132,13 +110,31 @@ public class Graph<V> implements GraphInterface<V>{
 		}
 		return al;
 	}
-	
 	@Override
-	public List<V> getRouteByDK(V v1, V v2) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Vertex<Long>> getRoadFloydWarshall(String v1, String v2) {
+		int[][] m  = FloydWarshall();
+		int start = vertexIndex.get(v2);
+		int end = vertexIndex.get(v2);
+		
+		List<Vertex<Long>> a = new ArrayList<>();
+		boolean finished = false;
+		int c = m[start][end];
+				
+		a.add(vertexes.get(start));
+		while (!finished) {
+			if (start == end) {
+				finished = true;
+			}else if (c == end){
+				a.add(vertexes.get(c));
+				finished = true;
+			}else {
+				a.add(vertexes.get(c));
+				c = m[c][end];
+			}
+		}
+		return a;
 	}
-	
+	@Override
 	public String getTxtMatrix() {
 		String txt = "";
 		for(int i = 0; i < distanceMatrix.length; i++) {
@@ -152,19 +148,9 @@ public class Graph<V> implements GraphInterface<V>{
 		return txt;
 	}
 	
-	public Double[][] getDistanceMatrix() {
+	public int[][] getDistanceMatrix() {
 		return distanceMatrix;
 	}
 
-	public void setDistanceMatrix(Double[][] distanceMatrix) {
-		this.distanceMatrix = distanceMatrix;
-	}
-
-	public int getIndex() {
-		return index;
-	}
-
-	public void setIndex(int index) {
-		this.index = index;
-	}
 }
+	
