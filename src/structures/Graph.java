@@ -51,12 +51,13 @@ public class Graph<V> implements GraphInterface<V>{
 			
 			distanceMatrix[vertexIndex.get(v2)][vertexIndex.get(v)] = l;
 		}
-		
+		/*
 		if(vertexes.get(vertexIndex.get(v)).getValue() == "EL CERRITO") {
 			index++;
 		} else if(vertexes.get(vertexIndex.get(v2)).getValue() == "EL CERRITO") {
 			index++;
 		}
+		*/
 		return added;
 	}
 	
