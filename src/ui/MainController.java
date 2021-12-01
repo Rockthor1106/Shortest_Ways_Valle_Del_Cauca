@@ -1,14 +1,24 @@
 package ui;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.security.auth.x500.X500Principal;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Line;
 import model.Route;
+import structures.Vertex;
 
 public class MainController {
 	 @FXML
@@ -148,20 +158,66 @@ public class MainController {
 	    
 	    ToggleButton g = new ToggleButton();
 	    
+	    private String initialPos;
+	    private String finalPos;
+	    
 	    public MainController() throws IOException {
 	    	route = new Route();
 	    	gp = new ToggleGroup();
 	    	group = new Group();
+	    	initialPos = "";
+	    	finalPos = "";
 	    }
 	    
 	    
 	    @FXML
 	    public void initialize() {
+	    	
+			cali.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+				@Override
+				public void handle(MouseEvent event) {
+					initialPos = "CALI";
+				}
+				
+			});
+			
+			florida.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+				@Override
+				public void handle(MouseEvent event) {
+					finalPos = "FLORIDA";
+				}
+				
+			});
 	    }
 
 	    @FXML
 	    void calculateRoute(ActionEvent event) {
-	    	System.out.println(route.getVertexRoute("CALI", "FLORIDA"));
+	    	List<String> routeList = route.getVertexRoute(initialPos, finalPos);
+	    	double ax, ay, bx, by;
+	    	
+	    	
+	    	
+	    	for (int i = 0; i < routeList.size(); i++) {
+	    		if (initialPos.equals("")) {
+					
+				}
+	    		else if(initialPos.equals("")) {
+					
+				}
+	    		else if(initialPos.equals("")) {
+					
+				}
+			}
+	    	
+//	    	Line line = new Line();
+//            line.setStartX(vertexesRouteList.get(i).+8); 
+//            line.setStartY(A.getLayoutY()+9); 
+//            line.setEndX(B.getLayoutX()+8); 
+//            line.setEndY(B.getLayoutY()+9); 
+//            group = new Group(line);
+
 	    }
 
 		public Group getGroup() {

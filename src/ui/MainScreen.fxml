@@ -33,7 +33,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" styleClass="bodybg" stylesheets="@../../CSS/background.css" BorderPane.alignment="CENTER">
          <children>
-            <RadioButton fx:id="buenaventura" layoutX="266.0" layoutY="605.0" mnemonicParsing="false" text="2" textFill="#c60c0c">
+            <RadioButton fx:id="BUENAVENTURA" layoutX="266.0" layoutY="605.0" mnemonicParsing="false" text="2" textFill="#c60c0c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -41,142 +41,142 @@
                   <ToggleGroup fx:id="c" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="cali" layoutX="475.0" layoutY="671.0" mnemonicParsing="false" text="1" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="CALI" layoutX="475.0" layoutY="671.0" mnemonicParsing="false" text="1" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="jamundí" layoutX="440.0" layoutY="748.0" mnemonicParsing="false" text="3" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="JAMUNDI" layoutX="440.0" layoutY="748.0" mnemonicParsing="false" text="3" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="candelaria" layoutX="593.0" layoutY="702.0" mnemonicParsing="false" text="4" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="CANDELARIA" layoutX="593.0" layoutY="702.0" mnemonicParsing="false" text="4" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="florida" layoutX="715.0" layoutY="722.0" mnemonicParsing="false" text="5" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="FLORIDA" layoutX="715.0" layoutY="722.0" mnemonicParsing="false" text="5" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="pradera" layoutX="705.0" layoutY="671.0" mnemonicParsing="false" text="6" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="PRADERA" layoutX="705.0" layoutY="671.0" mnemonicParsing="false" text="6" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="palmira" layoutX="687.0" layoutY="626.0" mnemonicParsing="false" text="7" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="PALMIRA" layoutX="687.0" layoutY="626.0" mnemonicParsing="false" text="7" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="yumbo" layoutX="538.0" layoutY="595.0" mnemonicParsing="false" text="8" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="YUMBO" layoutX="538.0" layoutY="595.0" mnemonicParsing="false" text="8" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="dagua" layoutX="422.0" layoutY="585.0" mnemonicParsing="false" text="9" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="DAGUA" layoutX="422.0" layoutY="585.0" mnemonicParsing="false" text="9" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="cumbre" layoutX="488.0" layoutY="560.0" mnemonicParsing="false" text="10" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="CUMBRE" layoutX="488.0" layoutY="560.0" mnemonicParsing="false" text="10" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="vijes" layoutX="551.0" layoutY="540.0" mnemonicParsing="false" text="11" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="VIJES" layoutX="551.0" layoutY="540.0" mnemonicParsing="false" text="11" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="cerrito" layoutX="718.0" layoutY="581.0" mnemonicParsing="false" text="12" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="CERRITO" layoutX="718.0" layoutY="581.0" mnemonicParsing="false" text="12" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="ginebra" layoutX="710.0" layoutY="540.0" mnemonicParsing="false" text="13" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="GINEBRA" layoutX="710.0" layoutY="540.0" mnemonicParsing="false" text="13" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="guacarí" layoutX="665.0" layoutY="519.0" mnemonicParsing="false" text="14" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="GUACARI" layoutX="665.0" layoutY="519.0" mnemonicParsing="false" text="14" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="restrepo" layoutX="498.0" layoutY="519.0" mnemonicParsing="false" text="15" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="RESTREPO" layoutX="498.0" layoutY="519.0" mnemonicParsing="false" text="15" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="darién" layoutX="476.0" layoutY="459.0" mnemonicParsing="false" text="16" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="DARIEN" layoutX="476.0" layoutY="459.0" mnemonicParsing="false" text="16" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="yotoco" layoutX="585.0" layoutY="470.0" mnemonicParsing="false" text="17" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="YOTOCO" layoutX="585.0" layoutY="470.0" mnemonicParsing="false" text="17" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="buga" layoutX="740.0" layoutY="491.0" mnemonicParsing="false" text="18" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="BUGA" layoutX="740.0" layoutY="491.0" mnemonicParsing="false" text="18" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="tuluá" layoutX="808.0" layoutY="431.0" mnemonicParsing="false" text="19" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="TULUA" layoutX="808.0" layoutY="431.0" mnemonicParsing="false" text="19" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="pedro" layoutX="687.0" layoutY="442.0" mnemonicParsing="false" text="20" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="PEDRO" layoutX="687.0" layoutY="442.0" mnemonicParsing="false" text="20" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="riofrío" layoutX="589.0" layoutY="393.0" mnemonicParsing="false" text="21" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="RIOFRIO" layoutX="589.0" layoutY="393.0" mnemonicParsing="false" text="21" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="trujillo" layoutX="633.0" layoutY="341.0" mnemonicParsing="false" text="22" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="TRUJILLO" layoutX="633.0" layoutY="341.0" mnemonicParsing="false" text="22" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="andalucía" layoutX="718.0" layoutY="372.0" mnemonicParsing="false" text="23" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="ANDALUCIA" layoutX="718.0" layoutY="372.0" mnemonicParsing="false" text="23" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="sevilla" layoutX="836.0" layoutY="341.0" mnemonicParsing="false" text="24" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="SEVILLA" layoutX="836.0" layoutY="341.0" mnemonicParsing="false" text="24" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="bugalagrande" layoutX="762.0" layoutY="352.0" mnemonicParsing="false" text="25" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="BUGALAGRANDE" layoutX="762.0" layoutY="352.0" mnemonicParsing="false" text="25" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="bolívar" layoutX="611.0" layoutY="286.0" mnemonicParsing="false" text="26" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="BOLIVAR" layoutX="611.0" layoutY="286.0" mnemonicParsing="false" text="26" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="zarzal" layoutX="762.0" layoutY="286.0" mnemonicParsing="false" text="27" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="ZARZAL" layoutX="762.0" layoutY="286.0" mnemonicParsing="false" text="27" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="caicedonia" layoutX="874.0" layoutY="313.0" mnemonicParsing="false" text="28" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="CAICEDONIA" layoutX="874.0" layoutY="313.0" mnemonicParsing="false" text="28" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="victoria" layoutX="814.0" layoutY="240.0" mnemonicParsing="false" text="29" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="VICTORIA" layoutX="814.0" layoutY="240.0" mnemonicParsing="false" text="29" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -191,57 +191,57 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="versalles" layoutX="633.0" layoutY="156.0" mnemonicParsing="false" text="32" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="VERSALLES" layoutX="633.0" layoutY="156.0" mnemonicParsing="false" text="32" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="unión" layoutX="740.0" layoutY="211.0" mnemonicParsing="false" text="33" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="UNION" layoutX="740.0" layoutY="211.0" mnemonicParsing="false" text="33" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="obando" layoutX="828.0" layoutY="190.0" mnemonicParsing="false" text="34" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="OBANDO" layoutX="828.0" layoutY="190.0" mnemonicParsing="false" text="34" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="toro" layoutX="753.0" layoutY="171.0" mnemonicParsing="false" text="35" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="TORO" layoutX="753.0" layoutY="171.0" mnemonicParsing="false" text="35" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="argelia" layoutX="728.0" layoutY="139.0" mnemonicParsing="false" text="36" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="ARGELIA" layoutX="728.0" layoutY="139.0" mnemonicParsing="false" text="36" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="cairo" layoutX="682.0" layoutY="104.0" mnemonicParsing="false" text="37" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="CAIRO" layoutX="682.0" layoutY="104.0" mnemonicParsing="false" text="37" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="águila" layoutX="750.0" layoutY="46.0" mnemonicParsing="false" text="38" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="AGUILA" layoutX="750.0" layoutY="46.0" mnemonicParsing="false" text="38" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="ansermanuevo" layoutX="762.0" layoutY="104.0" mnemonicParsing="false" text="39" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="ANSERMANUEVO" layoutX="762.0" layoutY="104.0" mnemonicParsing="false" text="39" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="cartago" layoutX="836.0" layoutY="150.0" mnemonicParsing="false" text="40" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="CARTAGO" layoutX="836.0" layoutY="150.0" mnemonicParsing="false" text="40" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="ulloa" layoutX="918.0" layoutY="139.0" mnemonicParsing="false" text="41" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="ULLOA" layoutX="918.0" layoutY="139.0" mnemonicParsing="false" text="41" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="alcalá" layoutX="926.0" layoutY="160.0" mnemonicParsing="false" text="42" textFill="#c60c0c" toggleGroup="$c">
+            <RadioButton fx:id="ALCALA" layoutX="926.0" layoutY="160.0" mnemonicParsing="false" text="42" textFill="#c60c0c" toggleGroup="$c">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
