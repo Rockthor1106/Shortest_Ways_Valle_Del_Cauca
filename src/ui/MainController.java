@@ -1,8 +1,12 @@
 package ui;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.RadioButton;
+import model.Route;
 
 public class MainController {
 	 @FXML
@@ -130,9 +134,28 @@ public class MainController {
 
 	    @FXML
 	    private RadioButton águila;
+	    
+	    private Route route;
+	    
+	    private Group group;
+	    
+	    public MainController() throws IOException {
+	    	route = new Route();
+	    	group = new Group();
+		}
+	    
+	    
+	    @FXML
+	    public void initialize() {
+	    	
+	    }
 
 	    @FXML
 	    void calculateRoute(ActionEvent event) {
-
+	    	System.out.println(route.getVertexRoute("cali", "florida").size());
 	    }
+
+		public Group getGroup() {
+			return group;
+		}
 }
