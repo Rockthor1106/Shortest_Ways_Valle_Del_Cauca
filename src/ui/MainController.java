@@ -3,6 +3,10 @@ package ui;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.security.auth.x500.X500Principal;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,14 +14,17 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
 import model.Route;
 import structures.Graph;
+import structures.Vertex;
 
 public class MainController {
 		
@@ -159,10 +166,15 @@ public class MainController {
 	    
 	    private List<RadioButton> vertexes;
 	    
+	    private String initialPos;
+	    private String finalPos;
+	    
 	    public MainController() throws IOException {
 	    	route = new Route();
 	    	group = new Group();
 	    	vertexes = new ArrayList<RadioButton>();
+	    	initialPos = "";
+	    	finalPos = "";
 	    }
 	    
 	    
@@ -223,6 +235,7 @@ public class MainController {
     	  	line.setEndX(CANDELARIA.getLayoutX()); 
     	    line.setEndY(CANDELARIA.getLayoutX()); 
     	    group.getChildren().add(line);
+
 	    }
 
 		public Group getGroup() {
