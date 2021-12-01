@@ -15,9 +15,9 @@ public class Main {
 		 ,{0,0,10,2,0,3}
 		 ,{0,0,0,6,3,0}};
 		String[] names = {"Node1","Node2","Node3","Node4","Node5","Node6"};
-		Graph grafo = new Graph(matrix);
+		Graph<String> grafo = new Graph<>(matrix);
 		for(int i = 0; i<names.length; i++) {
-			grafo.addVertex(names[i], 0);
+			grafo.addVertex(names[i]);
 		}
 		for(int i = 0; i<matrix.length; i++) {
 			for(int j = 0; j<matrix.length; j++) {
@@ -27,9 +27,9 @@ public class Main {
 		Dijkstra(grafo);
 		//FloydWarshall(grafo);
 		}
-	public static void Dijkstra(Graph grafo) {
+	public static void Dijkstra(Graph<String> grafo) {
 		grafo.Dijkstra(0);
-		List<Vertex<Long>> road = grafo.getRoadDijkstra(5);
+		List<Vertex<String>> road = grafo.getRoadDijkstra(5);
 		for(int i = 0; i<road.size(); i++) {
 			System.out.println(road.get(i).getName());
 		}

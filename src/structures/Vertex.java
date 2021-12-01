@@ -4,46 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Vertex<T> {
+public class Vertex<S> {
 
+	private S name;
+	
 	private int position;
 	
-	private String name;
-	private T weight;
+	private int weight;
 	
-	private Vertex<T> prev;
+	private Vertex<S> prev;
 	
-	private List<Vertex<T>> neighbors;
-	private List<T> distances;
+	private List<Vertex<S>> neighbors;
+	private List<Integer> distances;
 	
-	public Vertex(String n, T w, int p) {
+	public Vertex(S n, int p) {
 		name = n;
-		weight = w;
 		position = p;
+		
 		prev = null;
-		neighbors = new ArrayList<>();
-		distances = new ArrayList<>();
-	}
-	public Vertex(String n, int p) {
-		name = n;
-		weight = null;
-		position = p;
-		prev = null;
+		
 		neighbors = new ArrayList<>();
 		distances = new ArrayList<>();
 	}
 	
-	public String getName() {
+	public S getName() {
 		return name;
 	}
-	public void setName(String newN) {
+	public void setName(S newN) {
 		name = newN;
 	}
 	
-	public T getWeight() {
+	public int getWeight() {
 		return weight;
 	}
-	public void setWeight(T newW) {
+	public void setWeight(int newW) {
 		weight = newW;
 	}
 	
@@ -51,14 +45,14 @@ public class Vertex<T> {
 		return position;
 	}
 	
-	public Vertex<T> getPrev(){
+	public Vertex<S> getPrev(){
 		return prev;
 	}
-	public void setPrev(Vertex<T> newPrev) {
+	public void setPrev(Vertex<S> newPrev) {
 		prev = newPrev;
 	}
 	
-	public List<Vertex<T>> getNeighbors(){
+	public List<Vertex<S>> getNeighbors(){
 		return neighbors;
 	}
 	public int getIndexNeighbor(String name) {
@@ -70,18 +64,18 @@ public class Vertex<T> {
 		}
 		return index;
 	}
-	public List<T> getDistances(){
+	public List<Integer> getDistances(){
 		return distances;
 	}
-	public T getDistance(int index) {
+	public int getDistance(int index) {
 		for(int i = 0; i<distances.size(); i++) {
 			if(neighbors.get(i).getPosition() == index) {
 				return distances.get(i);
 			}
 		}
-		return null;
+		return 0;
 	}
-	public void addNeighbor(Vertex<T> neigh, T distance) {
+	public void addNeighbor(Vertex<S> neigh, int distance) {
 		neighbors.add(neigh);
 		distances.add(distance);
 	}

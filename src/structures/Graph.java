@@ -4,54 +4,61 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-public class Graph implements GraphInterface{
+public class Graph<S> implements GraphInterface<S>{
+	
 	private static final int SIZE = 6;
-	private int count = 0;
+	private int index = 0;
+	private int aux;
 	
 	private int[][] distanceMatrix;
 	
-	private Hashtable<String, Integer> vertexIndex;
+	private Hashtable<S, Integer> vertexIndex;
 	
-	private List<Vertex<Long>> vertexes;
-	
-	private int index,aux;
+	private List<Vertex<S>> vertexes;
 	
 	public Graph(int[][] matrix) {
 		vertexes = new ArrayList<>();
 		vertexIndex = new Hashtable<>();
 		distanceMatrix = matrix;
 	}
-	@Override
-	public void addVertex(String name, long weight) {
-		vertexes.add(new Vertex<Long>(name, weight, count));
-		vertexIndex.put(name, count);
-		count++;
+	public Graph() {
+		vertexes = new ArrayList<>();
+		vertexIndex = new Hashtable<>();
 	}
+	
 	@Override
-	public void addNeighbor(int posVertex1, int posVertex2, long distance) {
+	public void addVertex(S name) {
+		vertexes.add(new Vertex<S>(name, index));
+		vertexIndex.put(name, index);
+		index++;
+	}
+	
+	@Override
+	public void addNeighbor(int posVertex1, int posVertex2, int distance) {
 		vertexes.get(posVertex1).addNeighbor(vertexes.get(posVertex2), distance);
 	}
+	
 	@Override
 	public void Dijkstra(int source) {
 		boolean[] vertexChecked = new boolean[SIZE];
 		for(int i = 0; i<SIZE; i++) {
-			vertexes.get(i).setWeight((long)Integer.MAX_VALUE);
+			vertexes.get(i).setWeight(Integer.MAX_VALUE);
 			vertexChecked[i] = false;
 		}
-		vertexes.get(source).setWeight((long)0);
+		vertexes.get(source).setWeight(0);
 		
 		for(int i = 0; i<SIZE-1; i++) {
 			int pos = minDistance(vertexChecked);
 			vertexChecked[pos] = true;
-			for(Vertex<Long> v : vertexes.get(pos).getNeighbors()) {
+			for(Vertex<S> v : vertexes.get(pos).getNeighbors()) {
 				long alt = vertexes.get(pos).getWeight() + vertexes.get(pos).getDistance(v.getPosition());
 				if(!vertexChecked[v.getPosition()] && vertexes.get(pos).getDistance(v.getPosition()) > 0 && vertexes.get(pos).getWeight() != Integer.MAX_VALUE){
-					vertexes.get(v.getPosition()).setWeight(alt);
+					vertexes.get(v.getPosition()).setWeight((int)alt);
 					vertexes.get(v.getPosition()).setPrev(vertexes.get(pos));
 				}
 			}
 		}
-	}
+	}	
 	private int minDistance(boolean[] vertexChecked) {
 		long min = (long)Integer.MAX_VALUE;
 		int min_index = 0;
@@ -62,17 +69,18 @@ public class Graph implements GraphInterface{
 			}
 		}
 		return min_index;
-	}
+	}	
 	@Override
-	public List<Vertex<Long>> getRoadDijkstra(int destiny) {
-		List<Vertex<Long>> road = new ArrayList<>();
-		Vertex<Long> actual = vertexes.get(destiny);
+	public List<Vertex<S>> getRoadDijkstra(int destiny) {
+		List<Vertex<S>> road = new ArrayList<>();
+		Vertex<S> actual = vertexes.get(destiny);
 		while(actual.getPrev() != null) {
 			road.add(0, vertexes.get(actual.getPosition()));
 			actual = vertexes.get(actual.getPrev().getPosition());
 		}
 		return road;
 	}
+	
 	public boolean addEdge(String v, String v2, int l) {
 		boolean added = false;
 		if(distanceMatrix == null) {
@@ -109,13 +117,13 @@ public class Graph implements GraphInterface{
 	}
 	
 	@Override
-	public List<String> getRouteByFW(String v1, String v2) {
+	public List<S> getRouteByFW(S v1, S v2) {
 		int[][] m  = FloydWarshall();
 		
 		int start = vertexIndex.get(v1);
 		int end = vertexIndex.get(v2);
 		
-		List<String> a = new ArrayList<>();
+		List<S> a = new ArrayList<>();
 		boolean finished = false;
 		
 		int c = m[start][end];
@@ -170,6 +178,7 @@ public class Graph implements GraphInterface{
 		
 		return al;
 	}
+	
 	@Override
 	public String getTxtMatrix() {
 		String txt = "";
@@ -191,7 +200,6 @@ public class Graph implements GraphInterface{
 	public int[][] getDistanceMatrix() {
 		return distanceMatrix;
 	}
-
 	public void setDistanceMatrix(int[][] distanceMatrix) {
 		this.distanceMatrix = distanceMatrix;
 	}
@@ -199,16 +207,14 @@ public class Graph implements GraphInterface{
 	public int getIndex() {
 		return index;
 	}
-
 	public void setIndex(int index) {
 		this.index = index;
 	}
 
-	public List<Vertex<Long>> getVertexes() {
+	public List<Vertex<S>> getVertexes() {
 		return vertexes;
 	}
-
-	public void setVertexes(List<Vertex<Long>> vertexes) {
+	public void setVertexes(List<Vertex<S>> vertexes) {
 		this.vertexes = vertexes;
 	}
 }

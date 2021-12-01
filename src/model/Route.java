@@ -28,7 +28,7 @@ public class Route {
 		
 		while(line != null) {
 			temp = line.split(",");
-			graph.addEdge(temp[0], temp[1], Double.parseDouble(temp[2]));
+			graph.addEdge(temp[0], temp[1], Integer.parseInt(temp[2]));
 			line = bf.readLine();
 		}
 		
@@ -41,7 +41,7 @@ public class Route {
 		
 		String line = bf.readLine();
 		while(line != null) {
-			 graph.add(line);
+			 graph.addVertex(line);
 			 line = bf.readLine();
 		}
 		
