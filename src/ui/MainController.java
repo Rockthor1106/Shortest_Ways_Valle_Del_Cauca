@@ -1,5 +1,6 @@
 package ui;
 
+import java.beans.EventHandler;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -143,11 +144,10 @@ public class MainController {
 	    
 	    private ToggleGroup gp;
 	    
-	    ToggleButton g = new ToggleButton();
+	    private ToggleButton tb;
 	    
 	    public MainController() throws IOException {
 	    	route = new Route();
-	    	gp = new ToggleGroup();
 	    	group = new Group();
 	    }
 	    
