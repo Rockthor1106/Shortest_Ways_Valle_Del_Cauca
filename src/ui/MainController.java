@@ -138,6 +138,9 @@ public class MainController {
 	    @FXML
 	    private RadioButton águila;
 	    
+	    @FXML
+	    private ToggleGroup c;
+	    
 	    private Route route;
 	    
 	    private Group group;
@@ -154,7 +157,6 @@ public class MainController {
 	    
 	    @FXML
 	    public void initialize() {
-	    	
 	    }
 
 	    @FXML
