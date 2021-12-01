@@ -1,9 +1,11 @@
 package ui;
 
+import java.io.IOException;
 import java.util.List;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -71,7 +73,7 @@ public class Main extends Application {
 	*/
 	}
 	
-	public Main() {
+	public Main() throws IOException {
 		mainController = new MainController(); 
 	}
 	
@@ -83,7 +85,11 @@ public class Main extends Application {
 		
 		Parent root = fxmlLoader.load();
 		
-		Scene scene = new Scene(root);
+		Group group = new Group();
+		group.getChildren().add(root);
+		group.getChildren().add(mainController.getGroup());
+		
+		Scene scene = new Scene(group);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("ICESI Travels");
 		primaryStage.show();
