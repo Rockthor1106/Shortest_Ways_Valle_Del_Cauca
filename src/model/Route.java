@@ -36,7 +36,7 @@ public class Route {
 	}
 	
 	private void readVertexes() throws IOException {
-		File file = new File("data/municipalies.csv");
+		File file = new File("data/municipalities.csv");
 		BufferedReader bf = new BufferedReader(new FileReader(file));
 		
 		String line = bf.readLine();
