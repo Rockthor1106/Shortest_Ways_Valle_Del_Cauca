@@ -9,14 +9,16 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Route;
 import structures.*;
 
 public class Main extends Application {
 	
 	private MainController mainController;
-	
+
 	public static void main(String[] args) {
 		launch(args);
+		
 //		int[][] matrix = {{0,4,2,0,0,0}
 //		 ,{4,0,1,5,0,0}
 //		 ,{2,1,0,8,10,0}
@@ -50,16 +52,34 @@ public class Main extends Application {
 //			System.out.println(road.get(i));
 //		}
 //	}
-	/*
+
+	}
+	
+/*
 	public static void main(String[] args) throws IOException {
-		
+		/*
 		Route r = new Route();
-		
-		System.out.println(r.getGraph().getNumEdges());
 		
 		System.out.println(r.getGraph().getTxtMatrix());
 		
-		int[][] m = r.getGraph().fw();
+		int[][] m = r.getGraph().FloydWarshall();
+		
+		/*
+		Graph<String> g = new Graph<String>();
+		
+		g.addVertex("CANDELARIA");
+		g.addVertex("FLORIDA");
+		g.addVertex("PRADERA");
+		g.addVertex("CALI");
+		
+		g.addEdge("CANDELARIA", "FLORIDA", 22);
+		g.addEdge("CANDELARIA", "PRADERA", 8);
+		g.addEdge("CALI", "CANDELARIA", 31);
+		g.addEdge("CALI","PRADERA", 1);
+		
+		System.out.println(g.getTxtMatrix());
+		System.out.println(g.getRouteByFW("CALI", "CANDELARIA"));
+		int[][] m = g.FloydWarshall();
 		
 		String c = "";
 		for(int i = 0; i < m.length; i++) {
@@ -69,10 +89,10 @@ public class Main extends Application {
 			c += "\n";
 		}
 		System.out.println(c);
+		System.out.println(r.getVertexRoute("CALI", "FLORIDA"));
+		
 	}
-	*/
-	}
-	
+*/
 	public Main() throws IOException {
 		mainController = new MainController(); 
 	}
@@ -92,6 +112,7 @@ public class Main extends Application {
 		Scene scene = new Scene(group);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("ICESI Travels");
+		primaryStage.setResizable(true);
 		primaryStage.show();
 	}
 }

@@ -11,6 +11,7 @@ import structures.Graph;
 public class Route {
 
 	private Graph<String> graph;
+	private int aux;
 	
 	public Route() throws IOException {
 		graph = new Graph<>();
@@ -31,6 +32,7 @@ public class Route {
 			graph.addEdge(temp[0], temp[1], Integer.parseInt(temp[2]));
 			line = bf.readLine();
 		}
+		System.out.println(aux);
 		
 		bf.close();
 	}

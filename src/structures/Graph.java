@@ -10,13 +10,13 @@ public class Graph<S> implements GraphInterface<S>{
 	private int index = 0;
 	private int aux;
 	
-	private int[][] distanceMatrix;
+	private Double[][] distanceMatrix;
 	
 	private Hashtable<S, Integer> vertexIndex;
 	
 	private List<Vertex<S>> vertexes;
 	
-	public Graph(int[][] matrix) {
+	public Graph(Double[][] matrix) {
 		vertexes = new ArrayList<>();
 		vertexIndex = new Hashtable<>();
 		distanceMatrix = matrix;
@@ -85,22 +85,22 @@ public class Graph<S> implements GraphInterface<S>{
 		boolean added = false;
 		if(distanceMatrix == null) {
 			
-			distanceMatrix = new int[vertexes.size()][vertexes.size()];
+			distanceMatrix = new Double[vertexes.size()][vertexes.size()];
 			initilizesMatrix();
 			
 		}
+		if(vertexIndex.get(v) == null) {
+			System.out.println(v);
+		}else if(vertexIndex.get(v2) == null) {
+			System.out.println(v2);
+		}
 		if(vertexIndex.get(v) != null && vertexIndex.get(v2) != null) {
-			distanceMatrix[vertexIndex.get(v)][vertexIndex.get(v2)] = l;
+			distanceMatrix[vertexIndex.get(v)][vertexIndex.get(v2)] = (double) l;
 			
-			distanceMatrix[vertexIndex.get(v2)][vertexIndex.get(v)] = l;
+			distanceMatrix[vertexIndex.get(v2)][vertexIndex.get(v)] = (double) l;
+			added = true;
 		}
-		/*
-		if(vertexes.get(vertexIndex.get(v)).getValue() == "EL CERRITO") {
-			index++;
-		} else if(vertexes.get(vertexIndex.get(v2)).getValue() == "EL CERRITO") {
-			index++;
-		}
-		*/
+		
 		return added;
 	}
 	
@@ -108,9 +108,9 @@ public class Graph<S> implements GraphInterface<S>{
 		for(int i = 0; i < distanceMatrix.length; i++) {
 			for(int j = 0; j < distanceMatrix[0].length; j++) {
 				if(i != j) {
-					distanceMatrix[i][j] = Integer.MAX_VALUE;
+					distanceMatrix[i][j] = (double) Integer.MAX_VALUE;
 				} else {
-					distanceMatrix[i][j] = 0;
+					distanceMatrix[i][j] = (double) 0;
 				}
 			}
 		}
@@ -147,13 +147,13 @@ public class Graph<S> implements GraphInterface<S>{
 	}
 	@Override
 	public int[][] FloydWarshall() {
-		int[][] cost = new int[SIZE][SIZE];
-		int[][] al = new int [SIZE][SIZE]; 
+		Double[][] cost = new Double[vertexes.size()][vertexes.size()];
+		int[][] al = new int [vertexes.size()][vertexes.size()]; 
 		for (int i = 0; i < distanceMatrix.length; i++) {
 			for (int j = 0; j < distanceMatrix.length; j++) {
 				cost[i][j] = distanceMatrix[i][j];
 				
-				if(cost[i][j] == Double.MAX_VALUE) {
+				if(cost[i][j] == Integer.MAX_VALUE) {
 					al[i][j] = -1;
 				} else {
 					al[i][j] = j;
@@ -163,7 +163,7 @@ public class Graph<S> implements GraphInterface<S>{
 		for (int i = 0; i < cost.length; i++) {
 			for (int j = 0; j < cost.length; j++) {
 				for (int k = 0;k < cost.length; k++) {
-					int aux = cost[i][j]+cost[k][i];
+					Double aux = cost[i][j]+cost[k][i];
 					if (aux < cost[k][j]) {
 						cost[k][j] = aux;
 						cost[j][k] = aux;
@@ -197,10 +197,10 @@ public class Graph<S> implements GraphInterface<S>{
 		return aux;
 	}
 	
-	public int[][] getDistanceMatrix() {
+	public Double[][] getDistanceMatrix() {
 		return distanceMatrix;
 	}
-	public void setDistanceMatrix(int[][] distanceMatrix) {
+	public void setDistanceMatrix(Double[][] distanceMatrix) {
 		this.distanceMatrix = distanceMatrix;
 	}
 
@@ -217,5 +217,10 @@ public class Graph<S> implements GraphInterface<S>{
 	public void setVertexes(List<Vertex<S>> vertexes) {
 		this.vertexes = vertexes;
 	}
+	public Hashtable<S, Integer> getVertexIndex() {
+		return vertexIndex;
+	}
+	
+	
 }
 	

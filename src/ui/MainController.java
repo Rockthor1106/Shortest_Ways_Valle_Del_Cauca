@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import model.Route;
 
 public class MainController {
@@ -139,10 +141,15 @@ public class MainController {
 	    
 	    private Group group;
 	    
+	    private ToggleGroup gp;
+	    
+	    ToggleButton g = new ToggleButton();
+	    
 	    public MainController() throws IOException {
 	    	route = new Route();
+	    	gp = new ToggleGroup();
 	    	group = new Group();
-		}
+	    }
 	    
 	    
 	    @FXML
@@ -152,7 +159,7 @@ public class MainController {
 
 	    @FXML
 	    void calculateRoute(ActionEvent event) {
-	    	System.out.println(route.getVertexRoute("cali", "florida").size());
+	    	System.out.println(route.getVertexRoute("CALI", "FLORIDA"));
 	    }
 
 		public Group getGroup() {
