@@ -1,167 +1,228 @@
 package ui;
 
-import java.beans.EventHandler;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Line;
 import model.Route;
+import structures.Graph;
 
 public class MainController {
-	 @FXML
-	    private RadioButton alcalá;
+		
+		@FXML
+	    private BorderPane borderpane;
+	
+		@FXML
+	    private RadioButton BUENAVENTURA;
 
 	    @FXML
-	    private RadioButton andalucía;
+	    private ToggleGroup c;
 
 	    @FXML
-	    private RadioButton ansermanuevo;
+	    private RadioButton CALI;
 
 	    @FXML
-	    private RadioButton argelia;
+	    private RadioButton JAMUNDI;
 
 	    @FXML
-	    private RadioButton bolívar;
+	    private RadioButton CANDELARIA;
 
 	    @FXML
-	    private RadioButton buenaventura;
+	    private RadioButton FLORIDA;
 
 	    @FXML
-	    private RadioButton buga;
+	    private RadioButton PRADERA;
 
 	    @FXML
-	    private RadioButton bugalagrande;
+	    private RadioButton PALMIRA;
 
 	    @FXML
-	    private RadioButton caicedonia;
+	    private RadioButton YUMBO;
 
 	    @FXML
-	    private RadioButton cairo;
+	    private RadioButton DAGUA;
 
 	    @FXML
-	    private RadioButton cali;
+	    private RadioButton CUMBRE;
 
 	    @FXML
-	    private RadioButton candelaria;
+	    private RadioButton VIJES;
 
 	    @FXML
-	    private RadioButton cartago;
+	    private RadioButton CERRITO;
 
 	    @FXML
-	    private RadioButton cerrito;
+	    private RadioButton GINEBRA;
 
 	    @FXML
-	    private RadioButton cumbre;
+	    private RadioButton GUACARI;
 
 	    @FXML
-	    private RadioButton dagua;
+	    private RadioButton RESTREPO;
 
 	    @FXML
-	    private RadioButton darién;
+	    private RadioButton DARIEN;
 
 	    @FXML
-	    private RadioButton dovio;
+	    private RadioButton YOTOCO;
 
 	    @FXML
-	    private RadioButton florida;
+	    private RadioButton BUGA;
 
 	    @FXML
-	    private RadioButton ginebra;
+	    private RadioButton TULUA;
 
 	    @FXML
-	    private RadioButton guacarí;
+	    private RadioButton PEDRO;
 
 	    @FXML
-	    private RadioButton jamundí;
+	    private RadioButton RIOFRIO;
 
 	    @FXML
-	    private RadioButton obando;
+	    private RadioButton TRUJILLO;
 
 	    @FXML
-	    private RadioButton palmira;
+	    private RadioButton ANDALUCIA;
 
 	    @FXML
-	    private RadioButton pedro;
+	    private RadioButton SEVILLA;
 
 	    @FXML
-	    private RadioButton pradera;
+	    private RadioButton BUGALAGRANDE;
 
 	    @FXML
-	    private RadioButton restrepo;
+	    private RadioButton BOLIVAR;
 
 	    @FXML
-	    private RadioButton riofrío;
+	    private RadioButton ZARZAL;
+
+	    @FXML
+	    private RadioButton CAICEDONIA;
+
+	    @FXML
+	    private RadioButton VICTORIA;
 
 	    @FXML
 	    private RadioButton roldanillo;
 
 	    @FXML
-	    private RadioButton sevilla;
+	    private RadioButton dovio;
 
 	    @FXML
-	    private RadioButton toro;
+	    private RadioButton VERSALLES;
 
 	    @FXML
-	    private RadioButton trujillo;
+	    private RadioButton UNION;
 
 	    @FXML
-	    private RadioButton tuluá;
+	    private RadioButton OBANDO;
 
 	    @FXML
-	    private RadioButton ulloa;
+	    private RadioButton TORO;
 
 	    @FXML
-	    private RadioButton unión;
+	    private RadioButton ARGELIA;
 
 	    @FXML
-	    private RadioButton versalles;
+	    private RadioButton CAIRO;
 
 	    @FXML
-	    private RadioButton victoria;
+	    private RadioButton AGUILA;
 
 	    @FXML
-	    private RadioButton vijes;
+	    private RadioButton ANSERMANUEVO;
 
 	    @FXML
-	    private RadioButton yotoco;
+	    private RadioButton CARTAGO;
 
 	    @FXML
-	    private RadioButton yumbo;
+	    private RadioButton ULLOA;
 
 	    @FXML
-	    private RadioButton zarzal;
-
-	    @FXML
-	    private RadioButton águila;
-	    
-	    @FXML
-	    private ToggleGroup c;
+	    private RadioButton ALCALA;
 	    
 	    private Route route;
 	    
 	    private Group group;
 	    
-	    private ToggleGroup gp;
-	    
-	    private ToggleButton tb;
+	    private List<RadioButton> vertexes;
 	    
 	    public MainController() throws IOException {
 	    	route = new Route();
 	    	group = new Group();
+	    	vertexes = new ArrayList<RadioButton>();
 	    }
 	    
 	    
 	    @FXML
 	    public void initialize() {
+	    	borderpane.addEventFilter(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+	    	    @Override
+	    	    public void handle(ActionEvent event) {
+	    	    	RadioButton nodo = (RadioButton)c.getSelectedToggle();
+	    	    	vertexes.add(nodo);
+	    	    }
+	    	});
 	    }
 
 	    @FXML
-	    void calculateRoute(ActionEvent event) {
-	    	System.out.println(route.getVertexRoute("CALI", "FLORIDA"));
+	    public void calculateRoute(ActionEvent event) {
+	    	/*
+	    	List<String> vt;
+	    	
+	    	if(vertexes.get(1) != null && vertexes.get(0) != null) {
+	    		System.out.println(vertexes.get(1).getId() + " " + vertexes.get(0).getId());
+	    		vt = route.getVertexRoute(vertexes.get(0).getId(), vertexes.get(1).getId());
+	    		System.out.println(vt);
+	    		ObservableList<Toggle> nodos = c.getToggles();
+	    		double ax = 0, ay = 0, bx = 0, by = 0;
+	    				
+	    				
+	    		for(int i = 0; i < nodos.size(); i++) {
+	    			RadioButton temp = (RadioButton) nodos.get(i);
+	    			
+	    			for(int j = 0; j < vt.size(); j++) {
+	    				
+	    				if(vt.get(j) == temp.getId()) {
+		    				ax = temp.getLayoutX() + 8;
+		    				ay = temp.getLayoutY() + 9;
+		    			} else if(vt.get(j) == temp.getId()) {
+		    				bx = temp.getLayoutX()+8;
+		    				by = temp.getLayoutY()+9;
+		    			}
+	    				
+	    			}
+	    		}
+	    		
+	    		Line line = new Line();
+	    	    line.setStartX(ax); 
+	    	    line.setStartY(ay); 
+	    	  	line.setEndX(bx); 
+	    	    line.setEndY(by); 
+	    	    group.getChildren().add(line);
+	    		
+	    	} else {
+	    		
+	    	}
+	    	*/
+	    	Line line = new Line();
+    	    line.setStartX(CALI.getLayoutX()); 
+    	    line.setStartY(CALI.getLayoutY()); 
+    	  	line.setEndX(CANDELARIA.getLayoutX()); 
+    	    line.setEndY(CANDELARIA.getLayoutX()); 
+    	    group.getChildren().add(line);
 	    }
 
 		public Group getGroup() {
