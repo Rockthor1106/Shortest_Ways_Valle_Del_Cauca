@@ -1,13 +1,20 @@
 package ui;
 
-import java.io.IOException;
 import java.util.List;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import structures.*;
 
-public class Main {
+public class Main extends Application {
+	
+	private MainController mainController;
 	
 	public static void main(String[] args) {
+		launch(args);
 		int[][] matrix = {{0,4,2,0,0,0}
 		 ,{4,0,1,5,0,0}
 		 ,{2,1,0,8,10,0}
@@ -62,4 +69,22 @@ public class Main {
 		System.out.println(c);
 	}
 	*/
+	
+	public Main() {
+		mainController = new MainController(); 
+	}
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+		
+		fxmlLoader.setController(mainController);
+		
+		Parent root = fxmlLoader.load();
+		
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("ICESI Travels");
+		primaryStage.show();
+	}
 }
