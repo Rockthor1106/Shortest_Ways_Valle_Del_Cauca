@@ -188,9 +188,7 @@ public class MainController {
 	    	List<String> vt;
 	    	
 	    	if(vertexes.get(1) != null && vertexes.get(0) != null) {
-	    		System.out.println(vertexes.get(0).getId() + " " + vertexes.get(1).getId());
 	    		vt = route.getVertexRoute(vertexes.get(0).getId(), vertexes.get(1).getId());
-	    		System.out.println(vt);
 	    		ObservableList<Toggle> nodos = c.getToggles();
 	    		
 	    		double ax = 0, ay = 0, bx = 0, by = 0;
@@ -221,8 +219,15 @@ public class MainController {
 	    		}
 	    	}
 	    }
-
+	    
 		public Group getGroup() {
 			return group;
 		}
+		
+		@FXML
+	    public void reset(ActionEvent event) {
+			group.getChildren().clear();
+			vertexes = new ArrayList<RadioButton>();
+			c.getSelectedToggle().setSelected(false);
+	    }
 }
