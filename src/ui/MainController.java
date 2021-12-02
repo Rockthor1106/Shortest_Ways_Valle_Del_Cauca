@@ -166,15 +166,10 @@ public class MainController {
 	    
 	    private List<RadioButton> vertexes;
 	    
-	    private String initialPos;
-	    private String finalPos;
-	    
 	    public MainController() throws IOException {
 	    	route = new Route();
 	    	group = new Group();
 	    	vertexes = new ArrayList<RadioButton>();
-	    	initialPos = "";
-	    	finalPos = "";
 	    }
 	    
 	    

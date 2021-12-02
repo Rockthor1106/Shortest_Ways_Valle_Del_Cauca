@@ -192,6 +192,20 @@ public class Graph<S> implements GraphInterface<S>{
 		
 		return txt;
 	}
+	
+	public String getTxtmt() {
+		int[][] mt = FloydWarshall();
+		String txt = "";
+		for(int i = 0; i < mt.length; i++) {
+			for(int j = 0; j < mt[0].length; j++) {
+				txt += "[" + mt[i][j] + "] ";
+			}
+			
+			txt += "\n";
+		}
+		
+		return txt;
+	}
 
 	public int getNumEdges() {
 		return aux;
