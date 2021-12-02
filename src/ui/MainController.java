@@ -229,5 +229,6 @@ public class MainController {
 			group.getChildren().clear();
 			vertexes = new ArrayList<RadioButton>();
 			c.getSelectedToggle().setSelected(false);
+			route.clear();
 	    }
 }

@@ -61,7 +61,6 @@ public class Route {
 		List<String> cities = new ArrayList<>();
 		for(int i = 0; i<vertex.size(); i++) {
 			cities.add(vertex.get(i).getName());
-			System.out.println(cities.get(i));
 		}
 		
 		return cities;
@@ -74,5 +73,9 @@ public class Route {
 
 	public void setGraph(Graph<String> graph) {
 		this.graph = graph;
+	}
+	
+	public void clear() {
+		graph.clear();
 	}
 }

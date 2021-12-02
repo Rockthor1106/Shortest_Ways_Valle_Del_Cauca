@@ -87,11 +87,15 @@ public class Graph<S> implements GraphInterface<S>{
 			actual = vertexes.get(actual.getPrev().getPosition());
 		}
 		road.add(0,vertexes.get(actual.getPosition()));
+		System.out.println(vertexes.get(destiny).getWeight());
+		return road;
+	}
+	
+	public void clear() {
 		for(int i = 0; i<SIZE; i++) {
 			vertexes.get(i).setPrev(null);
 			vertexes.get(i).setWeight(0);
 		}
-		return road;
 	}
 	
 	public boolean addEdge(String v, String v2, int l) {
