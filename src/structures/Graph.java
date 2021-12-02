@@ -33,6 +33,14 @@ public class Graph<S> implements GraphInterface<S>{
 		index++;
 	}
 	
+	public int getVertexPosition(S name) {
+		for(int i = 0; i<vertexes.size(); i++) {
+			if(vertexes.get(i).getName().equals(name)) {
+				return vertexes.get(i).getPosition();
+			}
+		}
+		return 0;
+	}
 	@Override
 	public void addNeighbor(int posVertex1, int posVertex2, int distance) {
 		vertexes.get(posVertex1).addNeighbor(vertexes.get(posVertex2), distance);

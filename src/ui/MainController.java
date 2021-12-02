@@ -181,7 +181,6 @@ public class MainController {
 	    @FXML
 	    public void initialize() {
 	    	borderpane.addEventFilter(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-	    	    @Override
 	    	    public void handle(ActionEvent event) {
 	    	    	RadioButton nodo = (RadioButton)c.getSelectedToggle();
 	    	    	vertexes.add(nodo);
