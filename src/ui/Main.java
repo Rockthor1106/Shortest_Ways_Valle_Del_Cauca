@@ -17,9 +17,11 @@ public class Main extends Application {
 
 	public static void main(String[] args) throws IOException {
 		launch(args);
+		/*
 		Route rt = new Route();
 		System.out.println(rt.getGraph().getTxtMatrix());
 		System.out.println(rt.getGraph().getTxtmt());
+		*/
 	}
 	
 	public Main() throws IOException {
