@@ -181,7 +181,6 @@ public class MainController {
 	    @FXML
 	    public void initialize() {
 	    	borderpane.addEventFilter(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-	    	    @Override
 	    	    public void handle(ActionEvent event) {
 	    	    	RadioButton nodo = (RadioButton)c.getSelectedToggle();
 	    	    	vertexes.add(nodo);
@@ -230,10 +229,10 @@ public class MainController {
 	    	}
 	    	*/
 	    	Line line = new Line();
-    	    line.setStartX(CALI.getLayoutX()); 
-    	    line.setStartY(CALI.getLayoutY()); 
-    	  	line.setEndX(CANDELARIA.getLayoutX()); 
-    	    line.setEndY(CANDELARIA.getLayoutX()); 
+    	    line.setStartX(BUENAVENTURA.getLayoutX()); 
+    	    line.setStartY(BUENAVENTURA.getLayoutY()); 
+    	  	line.setEndX(DAGUA.getLayoutX()); 
+    	    line.setEndY(DAGUA.getLayoutX()); 
     	    group.getChildren().add(line);
 
 	    }

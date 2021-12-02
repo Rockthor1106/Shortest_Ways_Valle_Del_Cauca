@@ -14,7 +14,7 @@ public class Route {
 	private int aux;
 	
 	public Route() throws IOException {
-		graph = new Graph<>();
+		graph = new Graph<String>();
 		loadData();
 	}
 	
@@ -29,6 +29,7 @@ public class Route {
 		
 		while(line != null) {
 			temp = line.split(",");
+			graph.addNeighbor(graph.getVertexPosition(temp[0]), graph.getVertexPosition(temp[1]), Integer.parseInt(temp[2]));
 			graph.addEdge(temp[0], temp[1], Integer.parseInt(temp[2]));
 			line = bf.readLine();
 		}
