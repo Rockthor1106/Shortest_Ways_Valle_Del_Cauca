@@ -4,9 +4,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import structures.Graph;
+import structures.Vertex;
 
 public class Route {
 
@@ -52,7 +54,15 @@ public class Route {
 	}
 	
 	public List<String> getVertexRoute(String v1, String v2){
-		return graph.getRouteByFW(v1, v2);
+		//return graph.getRouteByFW(v1, v2);
+		graph.Dijkstra(graph.getVertexPosition(v1));
+		List<Vertex<String>> vertex = graph.getRoadDijkstra(graph.getVertexPosition(v2));
+		List<String> cities = new ArrayList<>();
+		for(int i = 0; i<vertex.size(); i++) {
+			System.out.println(cities.get(i));
+			cities.add(vertex.get(i).getName());	
+		}
+		return cities;
 	}
 	
 	public Graph<String> getGraph() {
