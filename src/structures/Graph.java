@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Graph<S> implements GraphInterface<S>{
 	
-	private static final int SIZE = 6;
+	private static final int SIZE = 42;
 	private int index = 0;
 	private int aux;
 	
@@ -85,6 +85,11 @@ public class Graph<S> implements GraphInterface<S>{
 		while(actual.getPrev() != null) {
 			road.add(0, vertexes.get(actual.getPosition()));
 			actual = vertexes.get(actual.getPrev().getPosition());
+		}
+		road.add(0,vertexes.get(actual.getPosition()));
+		for(int i = 0; i<SIZE; i++) {
+			vertexes.get(i).setPrev(null);
+			vertexes.get(i).setWeight(0);
 		}
 		return road;
 	}
@@ -193,6 +198,20 @@ public class Graph<S> implements GraphInterface<S>{
 		for(int i = 0; i < distanceMatrix.length; i++) {
 			for(int j = 0; j < distanceMatrix[0].length; j++) {
 				txt += "[" + distanceMatrix[i][j] + "] ";
+			}
+			
+			txt += "\n";
+		}
+		
+		return txt;
+	}
+	
+	public String getTxtmt() {
+		int[][] mt = FloydWarshall();
+		String txt = "";
+		for(int i = 0; i < mt.length; i++) {
+			for(int j = 0; j < mt[0].length; j++) {
+				txt += "[" + mt[i][j] + "] ";
 			}
 			
 			txt += "\n";

@@ -32,6 +32,7 @@ public class Route {
 		while(line != null) {
 			temp = line.split(",");
 			graph.addNeighbor(graph.getVertexPosition(temp[0]), graph.getVertexPosition(temp[1]), Integer.parseInt(temp[2]));
+			graph.addNeighbor(graph.getVertexPosition(temp[1]), graph.getVertexPosition(temp[0]), Integer.parseInt(temp[2]));
 			graph.addEdge(temp[0], temp[1], Integer.parseInt(temp[2]));
 			line = bf.readLine();
 		}
@@ -55,14 +56,17 @@ public class Route {
 	
 	public List<String> getVertexRoute(String v1, String v2){
 		//return graph.getRouteByFW(v1, v2);
+		
 		graph.Dijkstra(graph.getVertexPosition(v1));
 		List<Vertex<String>> vertex = graph.getRoadDijkstra(graph.getVertexPosition(v2));
 		List<String> cities = new ArrayList<>();
 		for(int i = 0; i<vertex.size(); i++) {
+			cities.add(vertex.get(i).getName());
 			System.out.println(cities.get(i));
-			cities.add(vertex.get(i).getName());	
 		}
+		
 		return cities;
+		
 	}
 	
 	public Graph<String> getGraph() {
