@@ -9,13 +9,19 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Route;
 
 public class Main extends Application {
 	
 	private MainController mainController;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		launch(args);
+		/*
+		Route rt = new Route();
+		System.out.println(rt.getGraph().getTxtMatrix());
+		System.out.println(rt.getGraph().getTxtmt());
+		*/
 	}
 	
 	public Main() throws IOException {

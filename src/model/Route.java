@@ -56,7 +56,6 @@ public class Route {
 	
 	public List<String> getVertexRoute(String v1, String v2){
 		//return graph.getRouteByFW(v1, v2);
-		
 		graph.Dijkstra(graph.getVertexPosition(v1));
 		List<Vertex<String>> vertex = graph.getRoadDijkstra(graph.getVertexPosition(v2));
 		List<String> cities = new ArrayList<>();
