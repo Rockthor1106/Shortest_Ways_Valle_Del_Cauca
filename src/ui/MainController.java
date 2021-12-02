@@ -230,10 +230,10 @@ public class MainController {
 	    	}
 	    	*/
 	    	Line line = new Line();
-    	    line.setStartX(CALI.getLayoutX()); 
-    	    line.setStartY(CALI.getLayoutY()); 
-    	  	line.setEndX(CANDELARIA.getLayoutX()); 
-    	    line.setEndY(CANDELARIA.getLayoutX()); 
+    	    line.setStartX(CALI.getLayoutX()+210); 
+    	    line.setStartY(CALI.getLayoutY()+116); 
+    	  	line.setEndX(BUENAVENTURA.getLayoutX()+210); 
+    	    line.setEndY(BUENAVENTURA.getLayoutY()+116); 
     	    group.getChildren().add(line);
 
 	    }
