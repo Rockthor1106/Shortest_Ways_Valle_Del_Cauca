@@ -17,7 +17,6 @@
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <TextArea editable="false" prefHeight="821.0" prefWidth="200.0" text="1. Cali&#10;2. Buenaventura&#10;3. Jamundí&#10;4. Candelaria&#10;5. Florida&#10;6. Pradera&#10;7. Palmira&#10;8. Yumbo&#10;9. Dagaua&#10;10. La cumbre&#10;11. Vijes&#10;12. El Cerrito&#10;13. Ginebra&#10;14. Guacarí&#10;15. Restrepo&#10;16. Darién&#10;17. Yotoco&#10;18. Buga&#10;19. Tuluá&#10;20. San Pedro&#10;21. Riofrío&#10;22. Trujillo&#10;23. Andalucía&#10;24. Sevilla&#10;25. Bugalagrande&#10;26. Bolívar&#10;27. Zarzal&#10;28. Caicedonia&#10;29. La victoria&#10;30. Roldanillo&#10;31. El dovio&#10;32. Versalles&#10;33. La unión &#10;34. Obando&#10;35. Toro&#10;36. Argelia&#10;37. El cairo&#10;38. El Águila&#10;39. Ansermanuevo&#10;40. Cartago&#10;41. Ulloa&#10;42. Alcalá" />
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>
                   <Button mnemonicParsing="false" onAction="#calculateRoute" text="Calculate" BorderPane.alignment="CENTER">
@@ -27,6 +26,7 @@
                   </Button>
                </center>
             </BorderPane>
+            <TextArea editable="false" prefHeight="821.0" prefWidth="200.0" text="1. Cali&#10;2. Buenaventura&#10;3. Jamundí&#10;4. Candelaria&#10;5. Florida&#10;6. Pradera&#10;7. Palmira&#10;8. Yumbo&#10;9. Dagaua&#10;10. La cumbre&#10;11. Vijes&#10;12. El Cerrito&#10;13. Ginebra&#10;14. Guacarí&#10;15. Restrepo&#10;16. Darién&#10;17. Yotoco&#10;18. Buga&#10;19. Tuluá&#10;20. San Pedro&#10;21. Riofrío&#10;22. Trujillo&#10;23. Andalucía&#10;24. Sevilla&#10;25. Bugalagrande&#10;26. Bolívar&#10;27. Zarzal&#10;28. Caicedonia&#10;29. La victoria&#10;30. Roldanillo&#10;31. El dovio&#10;32. Versalles&#10;33. La unión &#10;34. Obando&#10;35. Toro&#10;36. Argelia&#10;37. El cairo&#10;38. El Águila&#10;39. Ansermanuevo&#10;40. Cartago&#10;41. Ulloa&#10;42. Alcalá" />
          </children>
       </VBox>
    </left>
