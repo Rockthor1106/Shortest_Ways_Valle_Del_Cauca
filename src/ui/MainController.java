@@ -122,10 +122,10 @@ public class MainController {
 	    private RadioButton VICTORIA;
 
 	    @FXML
-	    private RadioButton roldanillo;
+	    private RadioButton ROLDANILLO;
 
 	    @FXML
-	    private RadioButton dovio;
+	    private RadioButton DOVIO;
 
 	    @FXML
 	    private RadioButton VERSALLES;
@@ -191,11 +191,10 @@ public class MainController {
 
 	    @FXML
 	    public void calculateRoute(ActionEvent event) {
-	    	
 	    	List<String> vt;
 	    	
 	    	if(vertexes.get(1) != null && vertexes.get(0) != null) {
-	    		System.out.println(vertexes.get(1).getId() + " " + vertexes.get(0).getId());
+	    		System.out.println(vertexes.get(0).getId() + " " + vertexes.get(1).getId());
 	    		vt = route.getVertexRoute(vertexes.get(0).getId(), vertexes.get(1).getId());
 	    		System.out.println(vt);
 	    		ObservableList<Toggle> nodos = c.getToggles();
@@ -226,24 +225,7 @@ public class MainController {
 	    				}
 	    			}
 	    		}
-	    		Line line = new Line();
-	    	    line.setStartX(ax); 
-	    	    line.setStartY(ay); 
-	    	  	line.setEndX(bx); 
-	    	    line.setEndY(by); 
-	    	    group.getChildren().add(line);
-	    	} else {
-	    		
 	    	}
-	    	/*
-	    	Line line = new Line();
-
-    	    line.setStartX(CALI.getLayoutX()+210); 
-    	    line.setStartY(CALI.getLayoutY()+116); 
-    	  	line.setEndX(BUENAVENTURA.getLayoutX()+210); 
-    	    line.setEndY(BUENAVENTURA.getLayoutY()+116); 
-    	    group.getChildren().add(line);
-    	    */
 	    }
 
 		public Group getGroup() {
