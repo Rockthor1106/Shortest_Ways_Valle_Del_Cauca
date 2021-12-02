@@ -122,10 +122,10 @@ public class MainController {
 	    private RadioButton VICTORIA;
 
 	    @FXML
-	    private RadioButton roldanillo;
+	    private RadioButton ROLDANILLO;
 
 	    @FXML
-	    private RadioButton dovio;
+	    private RadioButton DOVIO;
 
 	    @FXML
 	    private RadioButton VERSALLES;
@@ -191,7 +191,6 @@ public class MainController {
 
 	    @FXML
 	    public void calculateRoute(ActionEvent event) {
-	    	/*
 	    	List<String> vt;
 	    	
 	    	if(vertexes.get(1) != null && vertexes.get(0) != null) {
@@ -208,11 +207,11 @@ public class MainController {
 	    			for(int j = 0; j < vt.size(); j++) {
 	    				
 	    				if(vt.get(j) == temp.getId()) {
-		    				ax = temp.getLayoutX() + 8;
-		    				ay = temp.getLayoutY() + 9;
+		    				ax = temp.getLayoutX() + 210;
+		    				ay = temp.getLayoutY() + 116;
 		    			} else if(vt.get(j) == temp.getId()) {
-		    				bx = temp.getLayoutX()+8;
-		    				by = temp.getLayoutY()+9;
+		    				bx = temp.getLayoutX()+ 210;
+		    				by = temp.getLayoutY()+116;
 		    			}
 	    				
 	    			}
@@ -225,17 +224,14 @@ public class MainController {
 	    	    line.setEndY(by); 
 	    	    group.getChildren().add(line);
 	    		
-	    	} else {
-	    		
-	    	}
-	    	*/
-	    	Line line = new Line();
-    	    line.setStartX(CALI.getLayoutX()+210); 
-    	    line.setStartY(CALI.getLayoutY()+116); 
-    	  	line.setEndX(BUENAVENTURA.getLayoutX()+210); 
-    	    line.setEndY(BUENAVENTURA.getLayoutY()+116); 
-    	    group.getChildren().add(line);
+//	    	Line line = new Line();
+//    	    line.setStartX(CALI.getLayoutX()+210); 
+//    	    line.setStartY(CALI.getLayoutY()+116); 
+//    	  	line.setEndX(CAICEDONIA.getLayoutX()+210); 
+//    	    line.setEndY(CAICEDONIA.getLayoutY()+116); 
+//    	    group.getChildren().add(line);
 
+	    	}
 	    }
 
 		public Group getGroup() {
