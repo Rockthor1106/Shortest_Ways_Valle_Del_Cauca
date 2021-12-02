@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Graph<S> implements GraphInterface<S>{
 	
-	private static final int SIZE = 6;
+	private static final int SIZE = 42;
 	private int index = 0;
 	private int aux;
 	
@@ -86,6 +86,7 @@ public class Graph<S> implements GraphInterface<S>{
 			road.add(0, vertexes.get(actual.getPosition()));
 			actual = vertexes.get(actual.getPrev().getPosition());
 		}
+		road.add(0,vertexes.get(actual.getPosition()));
 		return road;
 	}
 	
