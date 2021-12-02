@@ -191,7 +191,7 @@ public class MainController {
 
 	    @FXML
 	    public void calculateRoute(ActionEvent event) {
-	    	/*
+	    	
 	    	List<String> vt;
 	    	
 	    	if(vertexes.get(1) != null && vertexes.get(0) != null) {
@@ -199,43 +199,51 @@ public class MainController {
 	    		vt = route.getVertexRoute(vertexes.get(0).getId(), vertexes.get(1).getId());
 	    		System.out.println(vt);
 	    		ObservableList<Toggle> nodos = c.getToggles();
+	    		
 	    		double ax = 0, ay = 0, bx = 0, by = 0;
 	    				
-	    				
-	    		for(int i = 0; i < nodos.size(); i++) {
-	    			RadioButton temp = (RadioButton) nodos.get(i);
-	    			z
-	    			for(int j = 0; j < vt.size(); j++) {
-	    				
-	    				if(vt.get(j) == temp.getId()) {
-		    				ax = temp.getLayoutX() + 8;
-		    				ay = temp.getLayoutY() + 9;
-		    			} else if(vt.get(j) == temp.getId()) {
-		    				bx = temp.getLayoutX()+8;
-		    				by = temp.getLayoutY()+9;
-		    			}
-	    				
+	    		int aux = 0;
+	    		for(int i = 0; i < vt.size(); i++) {
+	    			for(int j = 0; j < nodos.size(); j++) {
+	    				RadioButton temp = (RadioButton) nodos.get(j);
+	    				if (vt.get(i).equals(temp.getId()) && aux == 0) {
+	    					ax = temp.getLayoutX() + 210;
+	    					ay = temp.getLayoutY() + 116;
+	    					aux++;
+	    				} else if(vt.get(i).equals(temp.getId()) && aux == 1){
+	    					bx = temp.getLayoutX() + 210;
+	    					by = temp.getLayoutY() + 116;
+	    					
+	    					Line line = new Line();
+	    		    	    line.setStartX(ax); 
+	    		    	    line.setStartY(ay); 
+	    		    	  	line.setEndX(bx); 
+	    		    	    line.setEndY(by); 
+	    		    	    group.getChildren().add(line);
+	    		    	    
+	    		    	    ax = bx;
+	    		    	    ay = by;
+	    				}
 	    			}
 	    		}
-	    		
 	    		Line line = new Line();
 	    	    line.setStartX(ax); 
 	    	    line.setStartY(ay); 
 	    	  	line.setEndX(bx); 
 	    	    line.setEndY(by); 
 	    	    group.getChildren().add(line);
-	    		
 	    	} else {
 	    		
 	    	}
-	    	*/
+	    	/*
 	    	Line line = new Line();
-    	    line.setStartX(CALI.getLayoutX()); 
-    	    line.setStartY(CALI.getLayoutY()); 
-    	  	line.setEndX(CANDELARIA.getLayoutX()); 
-    	    line.setEndY(CANDELARIA.getLayoutY());	 
-    	    group.getChildren().add(line);
 
+    	    line.setStartX(CALI.getLayoutX()+210); 
+    	    line.setStartY(CALI.getLayoutY()+116); 
+    	  	line.setEndX(BUENAVENTURA.getLayoutX()+210); 
+    	    line.setEndY(BUENAVENTURA.getLayoutY()+116); 
+    	    group.getChildren().add(line);
+    	    */
 	    }
 
 		public Group getGroup() {
