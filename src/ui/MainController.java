@@ -204,7 +204,7 @@ public class MainController {
 	    				
 	    		for(int i = 0; i < nodos.size(); i++) {
 	    			RadioButton temp = (RadioButton) nodos.get(i);
-	    			
+	    			z
 	    			for(int j = 0; j < vt.size(); j++) {
 	    				
 	    				if(vt.get(j) == temp.getId()) {
@@ -233,7 +233,7 @@ public class MainController {
     	    line.setStartX(CALI.getLayoutX()); 
     	    line.setStartY(CALI.getLayoutY()); 
     	  	line.setEndX(CANDELARIA.getLayoutX()); 
-    	    line.setEndY(CANDELARIA.getLayoutX()); 
+    	    line.setEndY(CANDELARIA.getLayoutY());	 
     	    group.getChildren().add(line);
 
 	    }
